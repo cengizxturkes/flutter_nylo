@@ -10,34 +10,14 @@ import 'package:nylo_framework/nylo_framework.dart';
 class LoginForm extends NyFormData {
   LoginForm({String? name}) : super(name ?? "login");
 
-  // @override
-  // get init => () {
-  //   /// Initial data for the form
-  //   return {
-  //     "name": "Anthony",
-  //     "price": "100",
-  //     "favourite_color": "Blue",
-  //     "bio": "I am a Flutter Developer"
-  //   };
-  // };
-
   @override
   fields() => [
-        Field.text("Name", style: "compact"),
-        [
-          Field.currency(
-            "Price",
-            currency: "usd",
-            dummyData: "19.99",
-            style: "compact",
-          ),
-          Field.picker(
-            "Favourite Color",
-            options: ["Red", "Blue", "Green"],
-            validate: FormValidator.contains(["Red", "Blue", "Green"]),
-            style: "compact",
-          ),
-        ],
-        Field.textArea("Bio", style: "compact"),
+        Field.password(
+          "Password",
+          validate: FormValidator.password(),
+        ),
+        Field.date("Birth Date",
+            firstDate: DateTime(1900), lastDate: DateTime.now()),
+        Field.mask("Phone", mask: "(###) ###-####"),
       ];
 }

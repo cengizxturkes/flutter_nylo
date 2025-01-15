@@ -49,11 +49,11 @@ class _HomePageState extends NyPage<HomePage> {
             form: form,
             footer: MaterialButton(
               onPressed: () {
-                form.submit(onSuccess: (data) {
-                  // Do something with the data
-                });
+                form.submit(onSuccess: (data) {});
               },
-              child: Text("Submit"),
+              child: Text(
+                "Submit",
+              ),
             ),
           ),
         ],
